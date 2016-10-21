@@ -1,0 +1,44 @@
+{
+  "name": "p-if",
+  "version": "0.0.0",
+  "description": "Conditional promise chains",
+  "license": "MIT",
+  "repository": "sindresorhus/p-if",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "promise",
+    "if",
+    "else",
+    "conditional",
+    "cond",
+    "iff",
+    "chain",
+    "thunk",
+    "function",
+    "async",
+    "await",
+    "promises",
+    "combinator",
+    "bluebird"
+  ],
+  "devDependencies": {
+    "ava": "*",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
+  }
+}
