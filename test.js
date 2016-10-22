@@ -31,7 +31,7 @@ test('composability', async t => {
 	t.is(val, 'else');
 });
 
-test('cond can be a function', async t => {
+test('condition can be a function', async t => {
 	const isEmpty = arr => arr.length === 0;
 
 	const valA = await Promise.resolve([])
