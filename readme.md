@@ -68,6 +68,7 @@ Expected to return a `Promise` or value.
 
 ## Related
 
+- [p-catch-if](https://github.com/sindresorhus/p-catch-if) - Conditional promise catch handler
 - [p-log](https://github.com/sindresorhus/p-log) - Log the value/error of a promise
 - [p-tap](https://github.com/sindresorhus/p-tap) - Tap into a promise chain without affecting its value or state
 - [More…](https://github.com/sindresorhus/promise-fun)
