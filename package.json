@@ -40,5 +40,8 @@
   },
   "xo": {
     "esnext": true
+  },
+  "dependencies": {
+    "is-fn": "^1.0.0"
   }
 }
