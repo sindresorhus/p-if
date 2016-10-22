@@ -43,3 +43,14 @@ test('condition can be a function', async t => {
 	t.deepEqual(valA, [42]);
 	t.deepEqual(valB, [1]);
 });
+
+test('condition can be an async function', async t => {
+	const valA = await Promise.resolve([])
+		.then(m(async () => true, arr => arr.concat(42)));
+
+	const valB = await Promise.resolve([1])
+		.then(m(async () => false, arr => arr.concat(42)));
+
+	t.deepEqual(valA, [42]);
+	t.deepEqual(valB, [1]);
+});
