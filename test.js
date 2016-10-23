@@ -25,7 +25,7 @@ test('passthrough', async t => {
 });
 
 test('composability', async t => {
-	const val = await Promise.resolve('unicorn')
+	const val = await Promise.resolve(fixture)
 		.then(m(true, m(false, () => 'if', () => 'else')));
 
 	t.is(val, 'else');
