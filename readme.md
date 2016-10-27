@@ -47,7 +47,7 @@ Returns a [thunk](https://en.m.wikipedia.org/wiki/Thunk) that returns a `Promise
 
 Type: `boolean` `Function`
 
-Decides whether `doIf` or `doElse` is executed. Expected to return a `Promise` that resolves to `true` or the value `true`.
+Decides whether `doIf` or `doElse` is executed. Expected to return a Promise for true or the value true.
 
 #### doIf
 
