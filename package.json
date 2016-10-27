@@ -40,6 +40,5 @@
   },
   "xo": {
     "esnext": true
-  },
-  "dependencies": {}
+  }
 }
