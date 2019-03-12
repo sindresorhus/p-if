@@ -4,7 +4,7 @@
  * @param condition - Decides whether `doIf` or `doElse` is executed.
  * @param doIf - Executed if `condition` is `true`. Expected to return a `Promise` or value.
  * @param doElse - Executed if `condition` is `false`. Expected to return a `Promise` or value.
- * @returns A [thunk](https://en.m.wikipedia.org/wiki/Thunk) that returns a `Promise`.
+ * @returns A [thunk](https://en.wikipedia.org/wiki/Thunk) that returns a `Promise`.
  */
 export default function pIf<
 	ValueType,

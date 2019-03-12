@@ -32,13 +32,13 @@ test('composability', async t => {
 });
 
 test('condition can be a function', async t => {
-	const isEmpty = arr => arr.length === 0;
+	const isEmpty = array => array.length === 0;
 
 	const valueA = await Promise.resolve([])
-		.then(pIf(isEmpty, arr => arr.concat(42)));
+		.then(pIf(isEmpty, array => array.concat(42)));
 
 	const valueB = await Promise.resolve([1])
-		.then(pIf(isEmpty, arr => arr.concat(42)));
+		.then(pIf(isEmpty, array => array.concat(42)));
 
 	t.deepEqual(valueA, [42]);
 	t.deepEqual(valueB, [1]);
@@ -46,10 +46,10 @@ test('condition can be a function', async t => {
 
 test('condition can be an async function', async t => {
 	const valueA = await Promise.resolve([])
-		.then(pIf(async () => true, arr => arr.concat(42)));
+		.then(pIf(async () => true, array => array.concat(42)));
 
 	const valueB = await Promise.resolve([1])
-		.then(pIf(async () => false, arr => arr.concat(42)));
+		.then(pIf(async () => false, array => array.concat(42)));
 
 	t.deepEqual(valueA, [42]);
 	t.deepEqual(valueB, [1]);

@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save p-if
+$ npm install p-if
 ```
 
 
@@ -41,7 +41,7 @@ getList()
 
 It's just a passthrough if `condition` is `false` and `doElse` is not provided.
 
-Returns a [thunk](https://en.m.wikipedia.org/wiki/Thunk) that returns a `Promise`.
+Returns a [thunk](https://en.wikipedia.org/wiki/Thunk) that returns a `Promise`.
 
 #### condition
 
