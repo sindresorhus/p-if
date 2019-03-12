@@ -1,44 +1,43 @@
 {
-  "name": "p-if",
-  "version": "1.1.0",
-  "description": "Conditional promise chains",
-  "license": "MIT",
-  "repository": "sindresorhus/p-if",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "promise",
-    "if",
-    "else",
-    "conditional",
-    "cond",
-    "iff",
-    "chain",
-    "thunk",
-    "function",
-    "async",
-    "await",
-    "promises",
-    "combinator",
-    "bluebird"
-  ],
-  "devDependencies": {
-    "ava": "*",
-    "xo": "*"
-  },
-  "xo": {
-    "esnext": true
-  }
+	"name": "p-if",
+	"version": "1.1.0",
+	"description": "Conditional promise chains",
+	"license": "MIT",
+	"repository": "sindresorhus/p-if",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava && tsd-check"
+	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"keywords": [
+		"promise",
+		"if",
+		"else",
+		"conditional",
+		"cond",
+		"iff",
+		"chain",
+		"thunk",
+		"function",
+		"async",
+		"await",
+		"promises",
+		"combinator",
+		"bluebird"
+	],
+	"devDependencies": {
+		"ava": "^1.3.1",
+		"tsd-check": "^0.3.0",
+		"xo": "^0.24.0"
+	}
 }

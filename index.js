@@ -1,12 +1,16 @@
 'use strict';
 
-module.exports = (cond, doIf, doElse) => val => {
-	const chooseFn = bool => bool === true ? doIf(val) : (doElse ? doElse(val) : val);
+const pIf = (condition, doIf, doElse) => async value => {
+	const chooseFn = bool =>
+		bool === true ? doIf(value) : doElse ? doElse(value) : value;
 
-	if (typeof cond === 'function') {
-		return Promise.resolve(cond(val)).then(chooseFn);
+	if (typeof condition === 'function') {
+		const conditionResult = await condition(value);
+		return chooseFn(conditionResult);
 	}
 
-	return chooseFn(cond);
+	return chooseFn(condition);
 };
 
+module.exports = pIf;
+module.exports.default = pIf;

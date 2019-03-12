@@ -1,56 +1,56 @@
 import test from 'ava';
-import m from './';
+import pIf from '.';
 
 const fixture = Symbol('fixture');
 
 test('if', async t => {
-	const val = await Promise.resolve(fixture)
-		.then(m(true, () => 'if', () => 'else'));
+	const value = await Promise.resolve(fixture)
+		.then(pIf(true, () => 'if', () => 'else'));
 
-	t.is(val, 'if');
+	t.is(value, 'if');
 });
 
 test('else', async t => {
-	const val = await Promise.resolve(fixture)
-		.then(m(false, () => 'if', () => 'else'));
+	const value = await Promise.resolve(fixture)
+		.then(pIf(false, () => 'if', () => 'else'));
 
-	t.is(val, 'else');
+	t.is(value, 'else');
 });
 
 test('passthrough', async t => {
-	const val = await Promise.resolve(fixture)
-		.then(m(false, () => 'if'));
+	const value = await Promise.resolve(fixture)
+		.then(pIf(false, () => 'if'));
 
-	t.is(val, fixture);
+	t.is(value, fixture);
 });
 
 test('composability', async t => {
-	const val = await Promise.resolve(fixture)
-		.then(m(true, m(false, () => 'if', () => 'else')));
+	const value = await Promise.resolve(fixture)
+		.then(pIf(true, pIf(false, () => 'if', () => 'else')));
 
-	t.is(val, 'else');
+	t.is(value, 'else');
 });
 
 test('condition can be a function', async t => {
 	const isEmpty = arr => arr.length === 0;
 
-	const valA = await Promise.resolve([])
-		.then(m(isEmpty, arr => arr.concat(42)));
+	const valueA = await Promise.resolve([])
+		.then(pIf(isEmpty, arr => arr.concat(42)));
 
-	const valB = await Promise.resolve([1])
-		.then(m(isEmpty, arr => arr.concat(42)));
+	const valueB = await Promise.resolve([1])
+		.then(pIf(isEmpty, arr => arr.concat(42)));
 
-	t.deepEqual(valA, [42]);
-	t.deepEqual(valB, [1]);
+	t.deepEqual(valueA, [42]);
+	t.deepEqual(valueB, [1]);
 });
 
 test('condition can be an async function', async t => {
-	const valA = await Promise.resolve([])
-		.then(m(async () => true, arr => arr.concat(42)));
+	const valueA = await Promise.resolve([])
+		.then(pIf(async () => true, arr => arr.concat(42)));
 
-	const valB = await Promise.resolve([1])
-		.then(m(async () => false, arr => arr.concat(42)));
+	const valueB = await Promise.resolve([1])
+		.then(pIf(async () => false, arr => arr.concat(42)));
 
-	t.deepEqual(valA, [42]);
-	t.deepEqual(valB, [1]);
+	t.deepEqual(valueA, [42]);
+	t.deepEqual(valueB, [1]);
 });
