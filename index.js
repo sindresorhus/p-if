@@ -12,4 +12,5 @@ const pIf = (condition, doIf, doElse) => async value => {
 };
 
 module.exports = pIf;
+// TODO: Remove this for the next major release
 module.exports.default = pIf;

@@ -1,5 +1,5 @@
-import {expectType} from 'tsd-check';
-import pIf from '.';
+import {expectType} from 'tsd';
+import pIf = require('.');
 
 expectType<Promise<number | string>>(
 	pIf<number, string>(true, value => {
