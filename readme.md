@@ -1,4 +1,4 @@
-# p-if [![Build Status](https://travis-ci.org/sindresorhus/p-if.svg?branch=master)](https://travis-ci.org/sindresorhus/p-if)
+# p-if
 
 > Conditional promise chains
 
