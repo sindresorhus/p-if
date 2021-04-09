@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import pIf = require('.');
+import pIf from './index.js';
 
 expectType<Promise<number | string>>(
 	pIf<number, string>(true, value => {
@@ -21,9 +21,9 @@ expectType<Promise<number | string>>(
 );
 expectType<Promise<number | string>>(
 	pIf<number, string>(
-		value => {
+		async value => {
 			expectType<number>(value);
-			return Promise.resolve(true);
+			return true;
 		},
 		value => {
 			expectType<number>(value);
@@ -33,13 +33,13 @@ expectType<Promise<number | string>>(
 );
 expectType<Promise<number | string>>(
 	pIf<number, string>(
-		value => {
+		async value => {
 			expectType<number>(value);
-			return Promise.resolve(true);
+			return true;
 		},
-		value => {
+		async value => {
 			expectType<number>(value);
-			return Promise.resolve('foo');
+			return 'foo';
 		}
 	)(1)
 );
@@ -52,7 +52,7 @@ expectType<Promise<symbol | string>>(
 		},
 		value => {
 			expectType<number>(value);
-			return Symbol();
+			return Symbol('fixture');
 		}
 	)(1)
 );
@@ -68,15 +68,15 @@ expectType<Promise<symbol | string>>(
 		},
 		value => {
 			expectType<number>(value);
-			return Symbol();
+			return Symbol('fixture');
 		}
 	)(1)
 );
-expectType<Promise<number | string | symbol>>(
+expectType<Promise<string | symbol>>(
 	pIf<number, string, symbol>(
-		value => {
+		async value => {
 			expectType<number>(value);
-			return Promise.resolve(true);
+			return true;
 		},
 		value => {
 			expectType<number>(value);
@@ -84,23 +84,23 @@ expectType<Promise<number | string | symbol>>(
 		},
 		value => {
 			expectType<number>(value);
-			return Symbol();
+			return Symbol('fixture');
 		}
 	)(1)
 );
 expectType<Promise<symbol | string>>(
 	pIf<number, string, symbol>(
-		value => {
+		async value => {
 			expectType<number>(value);
-			return Promise.resolve(true);
+			return true;
 		},
-		value => {
+		async value => {
 			expectType<number>(value);
-			return Promise.resolve('foo');
+			return 'foo';
 		},
-		value => {
+		async value => {
 			expectType<number>(value);
-			return Promise.resolve(Symbol());
+			return Symbol('fixture');
 		}
 	)(1)
 );

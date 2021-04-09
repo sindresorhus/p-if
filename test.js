@@ -1,5 +1,5 @@
 import test from 'ava';
-import pIf from '.';
+import pIf from './index.js';
 
 const fixture = Symbol('fixture');
 
@@ -35,10 +35,10 @@ test('condition can be a function', async t => {
 	const isEmpty = array => array.length === 0;
 
 	const valueA = await Promise.resolve([])
-		.then(pIf(isEmpty, array => array.concat(42)));
+		.then(pIf(isEmpty, array => [...array, 42]));
 
 	const valueB = await Promise.resolve([1])
-		.then(pIf(isEmpty, array => array.concat(42)));
+		.then(pIf(isEmpty, array => [...array, 42]));
 
 	t.deepEqual(valueA, [42]);
 	t.deepEqual(valueB, [1]);
@@ -46,10 +46,10 @@ test('condition can be a function', async t => {
 
 test('condition can be an async function', async t => {
 	const valueA = await Promise.resolve([])
-		.then(pIf(async () => true, array => array.concat(42)));
+		.then(pIf(async () => true, array => [...array, 42]));
 
 	const valueB = await Promise.resolve([1])
-		.then(pIf(async () => false, array => array.concat(42)));
+		.then(pIf(async () => false, array => [...array, 42]));
 
 	t.deepEqual(valueA, [42]);
 	t.deepEqual(valueB, [1]);
